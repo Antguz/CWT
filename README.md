@@ -1,7 +1,7 @@
-# Continuous Wavelet Transformation for Spectroscopy
+##  Continuous Wavelet Transformation for Spectroscopy
 
 This is an R package is focused on the fast application of 1D - Continuous Wavelet 
-Transformation (CWT) using time series with special attention to signals from 
+Transformation (CWT) on time series with special attention to signals from 
 spectroscopy. The current code has been enhanced using C++ language through `Rcpp` 
 and `RcppArmadillo` packages, and run in parallel over samples using `OpenMP`. 
 It was develop by [J. Antonio Guzman Q.](https://www.jaguzmanq.com/) (<antguz06@gmail.com>) 
