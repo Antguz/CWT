@@ -1,0 +1,39 @@
+Type: Package
+Package: CWT
+Title: Continuos Wavelet Transformation for Spectroscopy
+Version: 0.2.5.2
+Authors@R:
+    person(given = "J. Antonio",
+           family = "Guzmán Q.",
+           role = c("cre", "aut", "cph"),
+           email = "antguz06@gmail.com",
+           comment = c(ORCID = "0000-0002-0721-148X"))
+Maintainer: J. Antonio Guzmán Q. <antguz06@gmail.com>
+Description: Fast application of Continous Wavelet Transformation on time series
+             with special attention to spectroscopy. It is written using 
+             data.table and C++ language and in some functions it is 
+             possible to use parallel processing to speed-up the computation over
+             samples.
+License: GPL (>= 3)
+URL: https://github.com/Antguz/CWT
+BugReports: https://github.com/Antguz/CWT/issues
+Depends: 
+    data.table (>= 1.0),
+    R (>= 4.0.0)
+Imports:
+    Rcpp,
+    RcppArmadillo 
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+LinkingTo: 
+    Rcpp,
+    RcppArmadillo
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
+RoxygenNote: 7.3.1
+SystemRequirements: GNU make
+ByteCompile: true
+Config/testthat/edition: 3
