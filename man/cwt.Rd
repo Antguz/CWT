@@ -36,28 +36,28 @@ derivative Gaussian wavelet.
 
 time_series <- sin(seq(0, 20 * pi, length.out = 100))
 
-# Example using a numeric vector
+# Using a numeric vector
 
-CWT(t = time_series,
+cwt(t = time_series,
     scales = c(1, 2, 3, 4, 5),
     summed_wavelet = FALSE)
 
-CWT(t = time_series,
+cwt(t = time_series,
     scales = c(1, 2, 3, 4, 5),
     summed_wavelet = TRUE)
 
-Example using a data.table
+# Using a matrix
 
 times <- 100
 frame <- matrix(rep(time_series, times),
                 nrow = times,
                 byrow = TRUE)
 
-CWT(t = frame,
+cwt(t = frame,
     scales = c(1, 2, 3, 4, 5),
     summed_wavelet = FALSE)
 
-CWT(t = frame,
+cwt(t = frame,
     scales = c(1, 2, 3, 4, 5),
     summed_wavelet = TRUE)
 

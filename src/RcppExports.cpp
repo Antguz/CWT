@@ -11,9 +11,9 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// CWT_rcpp
-arma::cube CWT_rcpp(arma::mat t, arma::vec scales, double variance, int threads);
-RcppExport SEXP _CWT_CWT_rcpp(SEXP tSEXP, SEXP scalesSEXP, SEXP varianceSEXP, SEXP threadsSEXP) {
+// cwt_rcpp
+arma::cube cwt_rcpp(arma::mat t, arma::vec scales, double variance, int threads);
+RcppExport SEXP _CWT_cwt_rcpp(SEXP tSEXP, SEXP scalesSEXP, SEXP varianceSEXP, SEXP threadsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -21,13 +21,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< arma::vec >::type scales(scalesSEXP);
     Rcpp::traits::input_parameter< double >::type variance(varianceSEXP);
     Rcpp::traits::input_parameter< int >::type threads(threadsSEXP);
-    rcpp_result_gen = Rcpp::wrap(CWT_rcpp(t, scales, variance, threads));
+    rcpp_result_gen = Rcpp::wrap(cwt_rcpp(t, scales, variance, threads));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_CWT_CWT_rcpp", (DL_FUNC) &_CWT_CWT_rcpp, 4},
+    {"_CWT_cwt_rcpp", (DL_FUNC) &_CWT_cwt_rcpp, 4},
     {NULL, NULL, 0}
 };
 

@@ -20,33 +20,36 @@
 #' returns an \code{array} (i.e., time, samples, and scales).
 #'
 #' @author J. Antonio Guzmán Q.
+#' 
+#' @importFrom data.table as.data.table
+#' @importFrom data.table data.table
 #'
 #' @examples
 #'
 #' time_series <- sin(seq(0, 20 * pi, length.out = 100))
 #'
-#' # Example using a numeric vector
+#' # Using a numeric vector
 #'
-#' CWT(t = time_series,
+#' cwt(t = time_series,
 #'     scales = c(1, 2, 3, 4, 5),
 #'     summed_wavelet = FALSE)
 #'
-#' CWT(t = time_series,
+#' cwt(t = time_series,
 #'     scales = c(1, 2, 3, 4, 5),
 #'     summed_wavelet = TRUE)
 #'
-#' Example using a data.table
+#' # Using a matrix
 #'
 #' times <- 100
 #' frame <- matrix(rep(time_series, times),
 #'                 nrow = times,
 #'                 byrow = TRUE)
 #'
-#' CWT(t = frame,
+#' cwt(t = frame,
 #'     scales = c(1, 2, 3, 4, 5),
 #'     summed_wavelet = FALSE)
 #'
-#' CWT(t = frame,
+#' cwt(t = frame,
 #'     scales = c(1, 2, 3, 4, 5),
 #'     summed_wavelet = TRUE)
 #'
@@ -58,7 +61,7 @@ cwt <- function(t,
                 threads = 1L) {
 
   # Check input argument types and lengths
-  if(class(t) == "numeric") {
+  if(is.numeric(t)) {
     frame <- matrix(t, nrow = 1, byrow = TRUE)
     colnames(frame) <- names(t)
   } else {
@@ -78,18 +81,23 @@ cwt <- function(t,
   }
 
   # Apply CWT_rcpp
-  transformation <- CWT(t = frame,
-                        scales = scales,
-                        variance = variance,
-                        threads = threads)
+  transformation <- cwt_rcpp(t = frame,
+                             scales = scales,
+                             variance = variance,
+                             threads = threads)
 
   # Apply summed wavelet
   if(summed_wavelet == TRUE) {
-    transformation <- rowSums(transformation, dims = 3)
-    transformation <- as.data.table(transformation)
-    colnames(transformation) <- colnames(t)
+    transformation <- apply(transformation, 2, rowSums)
+    
+    if(is.matrix(transformation)) {
+      transformation <- as.data.table(transformation)
+      colnames(transformation) <- colnames(t)
+    } else {
+      names(transformation) <- names(t)
+    }
   }
-
+  
   return(transformation)
 
 }

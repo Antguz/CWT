@@ -1,2 +1,2 @@
 # CWT
-Continuos Wavelet Transformation for Spectroscopy
+Continuous Wavelet Transformation for Spectroscopy

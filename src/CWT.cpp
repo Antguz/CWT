@@ -62,7 +62,7 @@ arma::rowvec convolveArma(const arma::rowvec & xa, const arma::rowvec & xb) {
 
 // Wavelet function
 // [[Rcpp::export]]
-arma::cube CWT_rcpp(arma::mat t,
+arma::cube cwt_rcpp(arma::mat t,
                     arma::vec scales,
                     double variance = 1L,
                     int threads = 1L) {
