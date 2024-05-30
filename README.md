@@ -1,3 +1,8 @@
+[![](https://www.r-pkg.org/badges/version/CWT)](https://cran.r-project.org/web/packages/CWT/index.html)
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/CWT)](https://cran.r-project.org/package=CWT)
+
+
 ##  Continuous Wavelet Transformation for Spectroscopy
 
 This is an R package is focused on the fast application of 1D - Continuous Wavelet 
