@@ -81,10 +81,9 @@ arma::cube cwt_rcpp(arma::mat t,
 
   //Set threads
 #ifdef _OPENMP
-  if ( threads > 1 ) {
-    omp_set_num_threads( threads );
-    REprintf("Number of threads=%i\n", omp_get_max_threads());
-  }
+  if(threads > 1) {
+    omp_set_num_threads(threads);
+  }  
 #endif
 
   // Perform for loops
