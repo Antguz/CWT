@@ -12,11 +12,11 @@ arma::rowvec gaussian2(arma::rowvec t, int scale, double variance) {
 
   int n = t.n_elem;
   arma::rowvec wavelet(n);
-  double norm_factor = 2 / (sqrt(3 * variance) * pow(M_PI, 0.25));
-
+  double norm_factor = 2 / (sqrt(3 * sqrt(variance)) * pow(M_PI, 0.25));
+  
   for(int i = 0; i < n; i++) {
     double t_scaled = t[i] / scale;
-    wavelet[i] = norm_factor * (1 - pow((t_scaled / variance), 2.0)) * exp(-pow(t_scaled, 2.0) / (2 * pow(variance, 2.0)));
+    wavelet[i] = (norm_factor * (1 - pow((t_scaled / sqrt(variance)), 2.0)) * exp(-pow(t_scaled, 2.0) / (2 * variance)))/sqrt(scale);
   }
 
   return wavelet;
