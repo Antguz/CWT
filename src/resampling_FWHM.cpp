@@ -29,7 +29,8 @@ arma::mat resampling_FWHM(arma::mat spectra,
     omp_set_num_threads(threads);
   }    
 #endif
-  
+
+#pragma omp parallel for 
   for(int j = 0; j < nbands; j++) {
     
     double sdx = fwhm[j] / (2 * sqrt(2 * log(2.0)));
@@ -40,7 +41,6 @@ arma::mat resampling_FWHM(arma::mat spectra,
       arma::vec dn = exp(-pow(wav - new_wav[j], 2) / sdx2);
       double sumdn = sum(dn);
       
-#pragma omp parallel for 
       for(int i = 0; i < samples; i++) {
         resampled(i, j) = sum(dn % spectra.row(i).t()) / sumdn;
       }
