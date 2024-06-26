@@ -1,7 +1,7 @@
 Type: Package
 Package: CWT
 Title: Continuous Wavelet Transformation for Spectroscopy
-Version: 0.1.0
+Version: 0.2.0
 Authors@R:
     person("J. Antonio", "Guzmán Q.", , "antguz06@gmail.com", role = c("cre", "aut", "cph"),
            comment = c(ORCID = "0000-0002-0721-148X"))

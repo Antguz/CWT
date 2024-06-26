@@ -5,3 +5,7 @@ cwt_rcpp <- function(t, scales, variance = 1L, threads = 1L) {
     .Call('_CWT_cwt_rcpp', PACKAGE = 'CWT', t, scales, variance, threads)
 }
 
+resampling_FWHM_rcpp <- function(spectra, wav, new_wav, fwhm, threads = 1L) {
+    .Call('_CWT_resampling_FWHM_rcpp', PACKAGE = 'CWT', spectra, wav, new_wav, fwhm, threads)
+}
+

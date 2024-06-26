@@ -13,11 +13,11 @@ using namespace arma;
 
 // Resampling using full width half maximum
 // [[Rcpp::export]]
-arma::mat resampling_FWHM(arma::mat spectra, 
-                          arma::vec wav, 
-                          arma::vec new_wav,
-                          arma::vec fwhm,
-                          int threads = 1) {
+arma::mat resampling_FWHM_rcpp(arma::mat spectra, 
+                               arma::vec wav, 
+                               arma::vec new_wav,
+                               arma::vec fwhm,
+                               int threads = 1) {
   
   int samples = spectra.n_rows;
   int nbands = new_wav.size();

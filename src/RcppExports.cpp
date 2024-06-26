@@ -25,9 +25,25 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// resampling_FWHM_rcpp
+arma::mat resampling_FWHM_rcpp(arma::mat spectra, arma::vec wav, arma::vec new_wav, arma::vec fwhm, int threads);
+RcppExport SEXP _CWT_resampling_FWHM_rcpp(SEXP spectraSEXP, SEXP wavSEXP, SEXP new_wavSEXP, SEXP fwhmSEXP, SEXP threadsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type spectra(spectraSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type wav(wavSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type new_wav(new_wavSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type fwhm(fwhmSEXP);
+    Rcpp::traits::input_parameter< int >::type threads(threadsSEXP);
+    rcpp_result_gen = Rcpp::wrap(resampling_FWHM_rcpp(spectra, wav, new_wav, fwhm, threads));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_CWT_cwt_rcpp", (DL_FUNC) &_CWT_cwt_rcpp, 4},
+    {"_CWT_resampling_FWHM_rcpp", (DL_FUNC) &_CWT_resampling_FWHM_rcpp, 5},
     {NULL, NULL, 0}
 };
 
