@@ -81,7 +81,7 @@ arma::cube cwt_rcpp(arma::mat t,
 
   //Set threads
 #ifdef _OPENMP
-  if(threads > 1) {
+  if(threads >= 1) {
     omp_set_num_threads(threads);
   }  
 #endif
@@ -93,7 +93,7 @@ arma::cube cwt_rcpp(arma::mat t,
     int scale = scales[i];
     arma::rowvec wavelet = gaussian2(time_points, scale, variance);
 
-#pragma omp parallel
+#pragma omp parallel for
     for (int j = 0; j < nrows; j++) { // loop by row
 
       arma::rowvec time_series = t.row(j);
