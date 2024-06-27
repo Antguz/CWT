@@ -6,10 +6,11 @@ Authors@R:
     person("J. Antonio", "Guzmán Q.", , "antguz06@gmail.com", role = c("cre", "aut", "cph"),
            comment = c(ORCID = "0000-0002-0721-148X"))
 Maintainer: J. Antonio Guzmán Q. <antguz06@gmail.com>
-Description: Fast application of Continuous Wavelet Transformation (CWT)
-    on time series with special attention to spectroscopy. It is written
-    using data.table and C++ language and in some functions it is possible
-    to use parallel processing to speed-up the computation over samples.
+Description: Fast application of Continuous Wavelet Transformation ('CWT') on time
+    series with special attention to spectroscopy. It is written using
+    data.table and 'C++' language and in some functions it is possible to
+    use parallel processing to speed-up the computation over samples. Currently, 
+    only the second derivative of a Gaussian wavelet function is implemented.
 License: GPL (>= 3)
 URL: https://github.com/Antguz/CWT
 BugReports: https://github.com/Antguz/CWT/issues
