@@ -32,7 +32,6 @@ arma::rowvec timepointsArma(int x) {
   }
 
   return time_points;
-
 }
 
 // Normalize time series
@@ -108,5 +107,4 @@ arma::cube cwt_rcpp(arma::mat t,
   }
 
   return array;
-
 }

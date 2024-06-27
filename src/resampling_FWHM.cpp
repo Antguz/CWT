@@ -48,5 +48,4 @@ arma::mat resampling_FWHM_rcpp(arma::mat spectra,
   } 
   
   return resampled;
-  
 }
