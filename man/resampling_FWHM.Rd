@@ -43,7 +43,7 @@ test <- matrix(c(dnorm(1:n, mean = mean, sd = sd1),
                byrow = TRUE)
 
 current_bands <- 1:n
-new_bands <- seq(5, 100, by = 5)
+new_bands <- seq(10, 90, by = 5)
 FHWM <- rep(5, length(new_bands))
 
 resampling_FWHM(spectra = test,
