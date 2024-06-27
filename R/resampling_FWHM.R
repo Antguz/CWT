@@ -35,7 +35,7 @@
 #'                byrow = TRUE)
 #' 
 #' current_bands <- 1:n
-#' new_bands <- seq(5, 100, by = 5)
+#' new_bands <- seq(10, 90, by = 5)
 #' FHWM <- rep(5, length(new_bands))
 #' 
 #' resampling_FWHM(spectra = test,
@@ -57,6 +57,10 @@ resampling_FWHM <- function(spectra,
   
   if(length(new_wavelengths) != length(FWHM)) {
     stop("There is not correspondence between new_wavelengths and FWHM")
+  }
+  
+  if(min(threads) < 1) {
+    stop("threads must be a positive interger higher than 1")
   }
   
   # Apply resampling

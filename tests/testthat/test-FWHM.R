@@ -22,7 +22,7 @@ test_that("Whether FWHM works", {
   
   dim_results <- dim(resampled)
   
-  expect_equal("data.table", class(transformation)[1], info = "Class")
-  expect_equal(c(length(new_bands), 2), dim_results, info = "Dim results")
+  expect_equal("data.table", class(resampled)[1], info = "Class")
+  expect_equal(c(2, length(new_bands)), dim_results, info = "Dim results")
   
 })
