@@ -8,7 +8,9 @@ cwt(t, scales, variance = 1, summed_wavelet = FALSE, threads = 1L)
 }
 \arguments{
 \item{t}{A \code{data.table}, \code{matrix}, or \code{numeric} vector where
-columns or values represent time (i.e., bands) and rows samples (i.e., pixels).}
+columns or values represent time (i.e., bands) and rows samples (i.e., pixels).
+Remember the transformation assume that columns or values are evenly spaced
+though time (i.e., bands at equal to sampling interval).}
 
 \item{scales}{A positive \code{numeric} vector describing the scales to
 compute. The minimum scale (i.e., scales = 1) is equal to sampling interval

@@ -12,11 +12,11 @@ arma::rowvec gaussian2(arma::rowvec t, int scale, double variance) {
 
   int n = t.n_elem;
   arma::rowvec wavelet(n);
-  double norm_factor = 2 / (sqrt(3 * variance) * pow(M_PI, 0.25));
-
+  double norm_factor = 2 / (sqrt(3 * sqrt(variance)) * pow(M_PI, 0.25));
+  
   for(int i = 0; i < n; i++) {
     double t_scaled = t[i] / scale;
-    wavelet[i] = norm_factor * (1 - pow((t_scaled / variance), 2.0)) * exp(-pow(t_scaled, 2.0) / (2 * pow(variance, 2.0)));
+    wavelet[i] = (norm_factor * (1 - pow((t_scaled / sqrt(variance)), 2.0)) * exp(-pow(t_scaled, 2.0) / (2 * variance)))/sqrt(scale);
   }
 
   return wavelet;
@@ -32,7 +32,6 @@ arma::rowvec timepointsArma(int x) {
   }
 
   return time_points;
-
 }
 
 // Normalize time series
@@ -81,10 +80,9 @@ arma::cube cwt_rcpp(arma::mat t,
 
   //Set threads
 #ifdef _OPENMP
-  if ( threads > 1 ) {
-    omp_set_num_threads( threads );
-    REprintf("Number of threads=%i\n", omp_get_max_threads());
-  }
+  if(threads >= 1) {
+    omp_set_num_threads(threads);
+  }  
 #endif
 
   // Perform for loops
@@ -94,7 +92,7 @@ arma::cube cwt_rcpp(arma::mat t,
     int scale = scales[i];
     arma::rowvec wavelet = gaussian2(time_points, scale, variance);
 
-#pragma omp parallel
+#pragma omp parallel for
     for (int j = 0; j < nrows; j++) { // loop by row
 
       arma::rowvec time_series = t.row(j);
@@ -109,5 +107,4 @@ arma::cube cwt_rcpp(arma::mat t,
   }
 
   return array;
-
 }
