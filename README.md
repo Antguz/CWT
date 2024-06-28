@@ -1,4 +1,4 @@
-[![](https://www.r-pkg.org/badges/version/CWT)](https://cran.r-project.org/web/packages/CWT/index.html)
+[![](https://www.r-pkg.org/badges/version/CWT)](https://cran.r-project.org/package=CWT)
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/license)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/CWT)](https://cran.r-project.org/package=CWT)
 

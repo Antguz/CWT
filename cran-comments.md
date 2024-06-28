@@ -2,4 +2,4 @@
 
 0 errors | 0 warnings | 0 note
 
-Version 0.2.0: A new function on resampling and bug fix on existing cwt function.
+Version 0.2.1: Fixing error of the canonical link.
