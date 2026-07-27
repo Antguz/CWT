@@ -22,7 +22,8 @@ arma::mat resampling_FWHM_rcpp(arma::mat spectra,
   int samples = spectra.n_rows;
   int nbands = new_wav.size();
   arma::mat resampled(samples, nbands);
-  
+  resampled.fill(arma::datum::nan);
+
   //Set threads
 #ifdef _OPENMP
   if(threads >= 1) {

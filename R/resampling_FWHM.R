@@ -15,7 +15,8 @@
 #' Experiment to see what works best for your data on your hardware.
 #'
 #' @return It returns a \code{data.table} with the resampled spectra, where columns
-#' are the new bands and rows are samples.
+#' are the new bands and rows are samples. New bands whose FWHM window falls
+#' partially outside the range of \code{wavelengths} are returned as \code{NA}.
 #'
 #' @author J. Antonio Guzmán Q.
 #' 

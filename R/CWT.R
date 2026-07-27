@@ -63,18 +63,20 @@ cwt <- function(t,
                 threads = 1L) {
 
   # Check input argument types and lengths
-  if(is.numeric(t)) {
+  is_vector_input <- is.numeric(t) && is.null(dim(t))
+
+  if(is_vector_input) {
     frame <- matrix(t, nrow = 1, byrow = TRUE)
     colnames(frame) <- names(t)
   } else {
     frame <- as.matrix(t)
   }
 
-  if(min(scales) < 0) {
+  if(min(scales) <= 0) {
     stop("scales must be positive numbers")
   }
 
-  if(min(variance) < 0) {
+  if(min(variance) <= 0) {
     stop("variance must be a positive number")
   }
 
@@ -90,13 +92,14 @@ cwt <- function(t,
 
   # Apply summed wavelet
   if(summed_wavelet == TRUE) {
-    transformation <- apply(transformation, 2, rowSums)
-    
-    if(is.matrix(transformation)) {
+    transformation <- rowSums(transformation, dims = 2)
+
+    if(is_vector_input) {
+      transformation <- as.vector(transformation)
+      names(transformation) <- names(t)
+    } else {
       transformation <- as.data.table(transformation)
       colnames(transformation) <- colnames(t)
-    } else {
-      names(transformation) <- names(t)
     }
   }
   
