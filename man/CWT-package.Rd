@@ -22,4 +22,9 @@ Useful links:
 \author{
 \strong{Maintainer}: J. Antonio Guzmán Q. \email{antguz06@gmail.com} (\href{https://orcid.org/0000-0002-0721-148X}{ORCID}) [copyright holder]
 
+Authors:
+\itemize{
+  \item J. Antonio Guzmán Q. \email{antguz06@gmail.com} (\href{https://orcid.org/0000-0002-0721-148X}{ORCID}) [copyright holder]
+}
+
 }
